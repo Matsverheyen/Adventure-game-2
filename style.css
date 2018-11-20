@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+body>div>button {
+  opacity: 0;
+}
+
+#msg {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 400%;
+  text-transform: uppercase;
+  margin-top: 20%;
+  text-align: center;
+}
+
+#btn1 {
+  position: absolute;
+  display: block;
+  top: 0%;
+  left: 0%;
+  width: 0%;
+  height: 0%;
+  cursor: pointer;
+}
+
+#btn2 {
+  position: absolute;
+  display: block;
+  top: 0%;
+  left: 0%;
+  width: 0%;
+  height: 0%;
+  cursor: pointer;
+}
+
+#btn3 {
+  position: absolute;
+  display: block;
+  top: 0%;
+  left: 0%;
+  width: 0%;
+  height: 0%;
+  cursor: pointer;
+}
+
+#btn4 {
+  position: absolute;
+  display: block;
+  top: 0%;
+  left: 0%;
+  width: 0%;
+  height: 0%;
+  cursor: pointer;
+}
