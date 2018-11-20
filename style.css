@@ -4,10 +4,28 @@ body {
   height: 100%;
   overflow: hidden;
   margin: 0;
+  background-size: cover;
 }
 
 body>div>button {
-  opacity: 0;
+  opacity: 10;
+}
+
+#key {
+  width: 100px;
+  height: 100px;
+  display: none;
+  position: absolute;
+  top: 85%;
+}
+
+#torch {
+    width: 100px;
+    height: 100px;
+    display: none;
+    position: absolute;
+    top: 85%;
+    left: 8%
 }
 
 #msg {
@@ -17,6 +35,20 @@ body>div>button {
   text-transform: uppercase;
   margin-top: 20%;
   text-align: center;
+}
+
+#startBtn {
+    position: absolute;
+    display: block;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    top: 0%;
+    left: 0%;
+    width: 0%;
+    height: 0%;
+    cursor: pointer;
 }
 
 #btn1 {
