@@ -8,7 +8,8 @@ body {
 }
 
 body>div>button {
-  opacity: 10;
+  opacity: 0;
+  cursor: pointer;
 }
 
 #key {
@@ -20,12 +21,12 @@ body>div>button {
 }
 
 #torch {
-    width: 100px;
-    height: 100px;
-    display: none;
-    position: absolute;
-    top: 85%;
-    left: 8%
+  width: 100px;
+  height: 100px;
+  display: none;
+  position: absolute;
+  top: 85%;
+  left: 8%
 }
 
 #msg {
@@ -37,56 +38,57 @@ body>div>button {
   text-align: center;
 }
 
+.codebox {
+  margin-left: 40%;
+  margin-bottom: 10%;
+}
+
+#inputbox {
+  border: 2px solid black;
+  padding: 10px;
+  text-align:center;
+  display: none;
+  width: 30%;
+}
+
+#submitbox {
+  display: none;
+  background-color: lime;
+  border: 0px solid;
+  margin-left: 2px;
+  width: 279px;
+  padding: 10px;
+}
+
+#submitbox:hover {
+  border: 2px solid black;
+}
+
 #startBtn {
-    position: absolute;
-    display: block;
-    color: black;
-    font-size: 20px;
-    font-weight: bolder;
-    text-transform: uppercase;
-    top: 0%;
-    left: 0%;
-    width: 0%;
-    height: 0%;
-    cursor: pointer;
+  position: absolute;
+  display: block;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 #btn1 {
   position: absolute;
   display: block;
-  top: 0%;
-  left: 0%;
-  width: 0%;
-  height: 0%;
-  cursor: pointer;
 }
 
 #btn2 {
   position: absolute;
   display: block;
-  top: 0%;
-  left: 0%;
-  width: 0%;
-  height: 0%;
-  cursor: pointer;
 }
 
 #btn3 {
   position: absolute;
   display: block;
-  top: 0%;
-  left: 0%;
-  width: 0%;
-  height: 0%;
-  cursor: pointer;
 }
 
 #btn4 {
   position: absolute;
   display: block;
-  top: 0%;
-  left: 0%;
-  width: 0%;
-  height: 0%;
-  cursor: pointer;
 }

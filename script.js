@@ -1,5 +1,6 @@
 var hasKey = false;
 var hasTorch = false;
+var CorrectCode = false;
 var Code = Math.floor(1000 + Math.random() * 9000);
 
 var delay = (function () {
@@ -161,4 +162,34 @@ function level6() {
 
 function level8() {
   console.log('Level 8')
+  document.body.style.backgroundImage = "url('/img/level_3.png')";
+  document.body.style.backgroundSize = "cover";
+  document.getElementById("btn2").style.left = "37%";
+  document.getElementById("btn2").style.display = "block";
+  document.getElementById("btn2").style.top = "55%";
+  document.getElementById("btn2").style.width = "5%";
+  document.getElementById("btn2").style.height = "20%";
+  document.getElementById('btn2').setAttribute("onClick", "level10();");
+  document.getElementById("btn3").style.left = "55%";
+  document.getElementById("btn3").style.top = "65%";
+  document.getElementById("btn3").style.width = "10%";
+  document.getElementById("btn3").style.height = "10%";
+  document.getElementById('btn3').setAttribute("onClick", "kist();");
+  document.getElementById('btn4').setAttribute("onClick", "level5();");
+}
+
+function kist() {
+  document.getElementById("msg").innerHTML = "Code:";
+  document.getElementById("inputbox").style.display = "block";
+  document.getElementById("submitbox").style.display = "block";
+}
+
+function checkCode() {
+  var check = $("#inputbox").val();
+  if (Code == check) {
+    $("#msg").text("De code was goed");
+    CorrectCode = true;
+  } else {
+    $("#msg").text("false");
+  }
 }

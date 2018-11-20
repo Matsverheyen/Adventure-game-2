@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Escape room</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
 </head>
+
 <body onload="init()">
   <div class="container">
     <div id="msg"></div>
+    <div class="codebox">
+      <input type="text" id="inputbox" value="" placeholder="0000">
+      <input type="submit" value="&#10003" id="submitbox" onclick="checkCode()">
+    </div>
     <button type="button" id="startBtn"></button>
     <button type="button" id="btn1"></button>
     <button type="button" id="btn2"></button>
@@ -20,4 +27,5 @@
     <img src="img/torch.png" alt="torch" id="torch">
   </div>
 </body>
+
 </html>
