@@ -13,67 +13,67 @@ var delay = (function () {
 
 function fakkel() {
   hasTorch = true;
-  document.getElementById("torch").style.display = "block";
-  document.getElementById("btn2").style.display = "none";
+  $("#torch").css("display", "block");
+  $("#btn2").css("display", "none");
 }
 
 function init() {
-  document.getElementById('startBtn').setAttribute("onClick", "level1();");
-  document.getElementById("startBtn").style.display = "block";
-  document.getElementById("btn1").style.display = "none";
-  document.getElementById("btn2").style.display = "none";
-  document.getElementById("btn3").style.display = "none";
+  $("#startBtn").attr("onClick", "level1();");
+  $("#btn4").css("display", "none");
+  $("#btn1").css("display", "none");
+  $("#btn2").css("display", "none");
+  $("#btn3").css("display", "none");
   document.body.style.backgroundColor = "#42474f";
-  document.getElementById("startBtn").style.left = "40%";
-  document.getElementById("startBtn").style.opacity = "10";
-  document.getElementById("startBtn").innerHTML = "start";
-  document.getElementById("startBtn").style.top = "50%";
-  document.getElementById("startBtn").style.height = "10%";
-  document.getElementById("startBtn").style.width = "20%";
-  document.getElementById("btn4").style.display = "none";
+  $("#startBtn").css("display", "block");
+  $("#startBtn").css("left", "40%");
+  $("#startBtn").css("top", "50%");
+  $("#startBtn").css("width", "20%");
+  $("#startBtn").css("height", "10%");
+  $("#startBtn").css("opacity", "10");
+  $("#startBtn").text("start");
 }
 
 function level1() {
   document.body.style.backgroundImage = "url('/img/level_1.jpg')";
-  document.getElementById('btn1').setAttribute("onClick", "level2();");
-  document.getElementById('btn3').setAttribute("onClick", "level4();");
-  document.getElementById('btn4').setAttribute("onClick", "level9();");
-  document.getElementById('startBtn').style.display = "none";
+  $("#btn1").attr("onClick", "level2();");
+  $("#btn3").attr("onClick", "level4();");
+  $("#btn4").attr("onClick", "level9();");
+  $("#startBtn").css("display", "none");
+  $("#startBtn").css("display", "none");
   document.body.style.backgroundSize = "cover";
-  document.getElementById('btn1').style.width = "10%";
-  document.getElementById('btn1').style.top = "30%";
-  document.getElementById('btn1').style.height = "38%";
-  document.getElementById('btn1').style.display = "block";
-  document.getElementById("btn1").innerHTML = "";
-  document.getElementById('btn1').style.left = "35%";
-  document.getElementById('btn2').style.display = "none";
-  document.getElementById('btn3').style.width = "15%";
-  document.getElementById('btn3').style.top = "25%";
-  document.getElementById('btn3').style.display = "block";
-  document.getElementById('btn3').style.height = "23%";
-  document.getElementById('btn3').style.left = "68%";
-  document.getElementById('btn4').style.width = "10%";
-  document.getElementById('btn4').style.top = "30%";
-  document.getElementById('btn4').style.display = "block";
-  document.getElementById('btn4').style.height = "50%";
-  document.getElementById('btn4').style.left = "90%";
+  $("#btn1").css("left", "35%");
+  $("#btn1").css("top", "30%");
+  $("#btn1").css("width", "10%");
+  $("#btn1").css("height", "38%");
+  $("#btn1").css("display", "block");
+  $("#btn2").css("display", "none");
+  $("#btn4").css("left", "90%");
+  $("#btn4").css("top", "30%");
+  $("#btn4").css("width", "10%");
+  $("#btn4").css("height", "50%");
+  $("#btn4").css("display", "block");
+  $("#btn3").css("left", "68%");
+  $("#btn3").css("top", "25%");
+  $("#btn3").css("width", "15%");
+  $("#btn3").css("height", "23%");
+  $("#btn3").css("display", "block");
   console.log('Level 1');
 }
 
 function level2() {
   console.log('Level 2');
   if (!hasKey) {
-    document.getElementById('msg').innerHTML = "Je hebt geen sleutel";
+    $("#msg").text("Je hebt geen sleutel");
     delay(function () {
-      document.getElementById('msg').innerHTML = "";
+      $("#msg").text("");
     }, 1500);
     console.log('Je hebt geen sleutel')
   } else {
-    document.getElementById('msg').innerHTML = "In de cel lag een briefje met een code erop";
+    $("#msg").text("In de cel lag een briefje met een code erop");
     delay(function () {
-      document.getElementById('msg').innerHTML = Code;
+      $("#msg").text(Code);
       delay(function () {
-        document.getElementById('msg').innerHTML = "";
+        $("#msg").text("");
       }, 1500);
     }, 1500);
   }
@@ -82,9 +82,9 @@ function level2() {
 function level3() {
   console.log('Level 3');
   if (!hasKey) {
-    document.getElementById('msg').innerHTML = "Je hebt geen sleutel";
+    $("#msg").text("Je hebt geen sleutel");
     delay(function () {
-      document.getElementById('msg').innerHTML = "";
+      $("#msg").text("");
     }, 1500);
     console.log('Je hebt geen sleutel')
   } else {
@@ -96,67 +96,68 @@ function level4() {
   document.body.style.backgroundImage = "url('/img/level_2.png')";
   document.body.style.backgroundSize = "cover";
   console.log('Level 4');
-  document.getElementById('btn1').style.width = "5%";
-  document.getElementById('btn1').style.height = "30%";
-  document.getElementById('btn1').style.display = "block";
-  document.getElementById('btn1').style.left = "30%";
-  document.getElementById('btn1').style.top = "30%";
-  document.getElementById('btn2').style.width = "15%";
-  document.getElementById('btn2').style.height = "10%";
+  $("#btn1").css("left", "30%");
+  $("#btn1").css("top", "30%");
+  $("#btn1").css("width", "5%");
+  $("#btn1").css("height", "30%");
+  $("#btn1").css("display", "block");
+  $("#btn2").css("width", "15%");
+  $("#btn2").css("height", "10%");
   if (!hasKey) {
-    document.getElementById('btn2').style.display = "block";
+    $("#btn2").css("display", "block");
   } else {
-    document.getElementById('btn2').style.display = "none";
+    $("#btn2").css("display", "none");
   }
-  document.getElementById('btn2').style.top = "50%";
-  document.getElementById('btn2').style.left = "35%";
-  document.getElementById('btn3').style.width = "5%";
-  document.getElementById('btn3').style.height = "25%";
-  document.getElementById('btn3').style.display = "block";
-  document.getElementById('btn3').style.top = "47%";
-  document.getElementById('btn3').style.left = "60%";
-  document.getElementById('btn4').style.top = "40%";
-  document.getElementById('btn4').style.left = "90%";
-  document.getElementById('btn4').style.width = "20%";
-  document.getElementById('btn4').style.height = "70%";
-  document.getElementById('btn4').style.display = "block";
-  document.getElementById('btn1').setAttribute("onClick", "level5();");
-  document.getElementById('btn2').setAttribute("onClick", "level6();");
-  document.getElementById('btn3').setAttribute("onClick", "level7();");
-  document.getElementById('btn4').setAttribute("onClick", "level1();");
+  $("#btn2").css("left", "35%");
+  $("#btn2").css("top", "50%");
+  $("#btn3").css("left", "60%");
+  $("#btn3").css("top", "47%");
+  $("#btn3").css("width", "5%");
+  $("#btn3").css("height", "25%");
+  $("#btn3").css("display", "block");
+  $("#btn4").css("left", "90%");
+  $("#btn4").css("top", "40%");
+  $("#btn4").css("width", "20%");
+  $("#btn4").css("height", "70%");
+  $("#btn4").css("display", "block");
+  $("#btn1").attr("onClick", "level5();");
+  $("#btn2").attr("onClick", "level6();");
+  $("#btn3").attr("onClick", "level7();");
+  $("#btn4").attr("onClick", "level1();");
 }
 
 function level5() {
   console.log('Level 5');
   document.body.style.backgroundImage = "url('/img/level_6.png')";
   document.body.style.backgroundSize = "cover";
-  document.getElementById('btn1').style.display = "none";
+  $("#btn1").css("display", "none");
   if (!hasTorch) {
-    document.getElementById('btn2').style.display = "block";
+    $("#btn2").css("display", "block");
   } else {
-    document.getElementById('btn2').style.display = "none";
+    $("#btn2").css("display", "none");
   }
-  document.getElementById("btn2").style.left = "28%";
-  document.getElementById("btn2").style.top = "55%";
-  document.getElementById("btn2").style.width = "5%";
-  document.getElementById("btn2").style.height = "20%";
-  document.getElementById('btn2').setAttribute("onClick", "fakkel();");
-  document.getElementById('btn3').setAttribute("onClick", "level8();");
-  document.getElementById('btn4').setAttribute("onClick", "level4();");
-  document.getElementById("btn4").style.left = "35%";
-  document.getElementById("btn4").style.height = "20%";
-  document.getElementById("btn4").style.width = "30%";
-  document.getElementById("btn4").style.top = "80%";
-  document.getElementById("btn3").style.left = "48%";
-  document.getElementById("btn3").style.height = "30%";
-  document.getElementById("btn3").style.width = "10%";
-  document.getElementById("btn3").style.top = "60%";
+  $("#btn2").attr("onClick", "fakkel();");
+  $("#btn3").attr("onClick", "level8();");
+  $("#btn4").attr("onClick", "level4();");
+  $("#btn3").css("left", "48%");
+  $("#btn3").css("top", "60%");
+  $("#btn3").css("width", "10%");
+  $("#btn3").css("height", "30%");
+  $("#btn4").css("left", "35%");
+  $("#btn4").css("top", "80%");
+  $("#btn4").css("width", "30%");
+  $("#btn4").css("height", "20%");
+  $("#btn2").css("left", "28%");
+  $("#btn2").css("top", "55%");
+  $("#btn2").css("width", "5%");
+  $("#btn2").css("height", "20%");
 }
 
 function level6() {
   console.log('Level 6 - Sleutel');
-  document.getElementById("key").style.display = "block";
-  document.getElementById("btn2").style.display = "none";
+  $("#btn2").css("display", "none")
+  $("#key").css("display", "block")
+
   hasKey = true;
 }
 
@@ -164,27 +165,45 @@ function level8() {
   console.log('Level 8')
   document.body.style.backgroundImage = "url('/img/level_3.png')";
   document.body.style.backgroundSize = "cover";
-  document.getElementById("btn2").style.left = "37%";
-  document.getElementById("btn2").style.display = "block";
-  document.getElementById("btn2").style.top = "55%";
-  document.getElementById("btn2").style.width = "5%";
-  document.getElementById("btn2").style.height = "20%";
-  document.getElementById('btn2').setAttribute("onClick", "level10();");
-  document.getElementById("btn3").style.left = "55%";
-  document.getElementById("btn3").style.top = "65%";
-  document.getElementById("btn3").style.width = "10%";
-  document.getElementById("btn3").style.height = "10%";
-  document.getElementById('btn3').setAttribute("onClick", "kist();");
-  document.getElementById('btn4').setAttribute("onClick", "level5();");
+  $("#btn1").text("");
+  $("#btn1").css("display", "none")
+  $("#msg").text("");
+  $("#submitbox").css("display", "none")
+  $("#inputbox").css("display", "none")
+  $("#btn2").css("left", "37%");
+  $("#btn2").css("top", "55%");
+  $("#btn2").css("display", "block");
+  $("#btn2").css("width", "5%");
+  $("#btn2").css("height", "20%");
+  $("#btn3").css("left", "55%");
+  $("#btn3").css("top", "65%");
+  $("#btn3").css("display", "block");
+  $("#btn4").css("display", "block");
+  $("#btn3").css("width", "10%");
+  $("#btn3").css("height", "10%");
+  $("#btn3").attr("onClick", "kist();");
+  $("#btn4").attr("onClick", "level5();");
+  $("#btn2").attr("onClick", "level10();");
 }
 
 function kist() {
-  document.getElementById("msg").innerHTML = "Code:";
-  document.getElementById("inputbox").style.display = "block";
-  document.getElementById("submitbox").style.display = "block";
+  console.log('Kist');
+  $("#msg").text("Code:");
+  $("#submitbox").css("display", "block");
+  $("#inputbox").css("display", "block");
+  $("#btn2").css("display", "none");
+  $("#btn3").css("display", "none");
+  $("#btn4").css("display", "none");
+  $("#btn1").css("display", "block");
+  $("#btn1").css("top", "60%");
+  $("#btn1").css("left", "40%");
+  $("#btn1").css("width", "20%");
+  $("#btn1").css("height", "20%");
+  $("#btn1").attr("onClick", "level8();");
 }
 
 function checkCode() {
+  console.log('Checking Code');
   var check = $("#inputbox").val();
   if (Code == check) {
     $("#msg").text("De code was goed");
