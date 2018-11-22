@@ -8,7 +8,7 @@ body {
 }
 
 body>div>button {
-  opacity: 0;
+  opacity: 10;
   cursor: pointer;
 }
 
