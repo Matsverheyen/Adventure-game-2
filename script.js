@@ -1,6 +1,7 @@
 let hasKey = false;
 let hasTorch = false;
 let CorrectCode = false;
+let CodeCracked = true;
 const Code = Math.floor(1000 + Math.random() * 9999);
 let doorsound = new Audio("sound/lidcreak.mp3");
 
@@ -36,7 +37,7 @@ function init() {
 
 function level1() {
   $("#startBtn").css("display", "none");
-  document.body.style.backgroundSize = "cover";
+  document.body.style.display = "center";
   console.log('Level 1');
   document.body.style.backgroundImage = "url('img/level_1.jpg')";
   $("#btn1, #btn3, #btn4").css("display", "block");
@@ -200,9 +201,9 @@ function level8() {
     height: "10%",
   });
   $("#btn4").css("height", "35%")
+  $("#btn2").attr("onClick", "level10();");
   $("#btn3").attr("onClick", "kist();");
   $("#btn4").attr("onClick", "level5();");
-  $("#btn2").attr("onClick", "level10();");
 }
 
 function kist() {
@@ -223,9 +224,69 @@ function checkCode() {
   console.log('Checking Code');
   let check = $("#inputbox").val();
   if (Code == check) {
-    $("#msg").text("De code was goed");
+    $("#msg").text("De deur rechts van je is geopend.");
+    CodeCracked = true;
     CorrectCode = true;
   } else {
     $("#msg").text("false");
   }
 }
+
+function level10() {
+    if (!CodeCracked) {
+      $("#msg").text("De deur zit op slot!");
+      delay(function () {
+        console.log("op slot");
+        $("#msg").text("");
+      }, 1500);
+    } else {
+      $("#msg").text("");
+      console.log("Geopend");
+      document.body.style.backgroundImage = "url('img/boss.jpg')";
+      document.body.style.backgroundSize = "cover";
+      $("#btn4, #btn2, #btn3").css("display", "none");
+      $("#startBtn").attr("onClick", "Fireball();");
+      $("#startBtn").text("Start bossfight");
+      $('#startBtn').css('border-radius', '50%');
+      $("#startBtn").css({
+        left: "47%",
+        top: "40%",
+        width: "10%",
+        height: "40%",
+        display: "block"
+      });
+      Fireball();
+    }
+  }
+
+function Fireball() {
+  $("#shield").css("display", "block");
+  $("#fireball").css("display", "block");
+  $("#startBtn").css("display", "none");
+  var elem = document.getElementById("fireball");
+  var pos = 0;
+  var id = setInterval(frame, 1);
+  function frame() {
+    if (pos == 2000) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+$(document).on('keydown', function (e) {
+  switch (e.key) {
+    case "ArrowUp":
+      $('#shield').animate({
+        top: "-=20px"
+      }, 'fast');
+      break;
+    case "ArrowDown":
+      $('#shield').animate({
+        top: "+=20px"
+      }, 'fast');
+      break;
+  }
+});

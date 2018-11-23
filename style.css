@@ -12,6 +12,21 @@ body>div>button {
   cursor: pointer;
 }
 
+#shield {
+  display: none;
+  position: absolute;
+  left: 85%;
+  width: 10%;
+  height: 20%;
+}
+
+#fireball {
+  width: 20%;
+  height: 30%;
+  position: absolute;
+  display: none;
+}
+
 #key {
   width: 100px;
   height: 100px;
