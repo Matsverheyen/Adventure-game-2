@@ -18,7 +18,7 @@ body>div>button {
   height: 10%;
   left: 18%;
   position: absolute;
-  top: 87%;
+  top: 88%;
 }
 
 #shield {
@@ -42,6 +42,33 @@ body>div>button {
   display: none;
   position: absolute;
   top: 85%;
+}
+
+#sword1 {
+  display: none;
+  height: 10%;
+  width: 5%;
+  top: 88%;
+  position: absolute;
+  left: 28%;
+}
+
+#sword2 {
+  display: none;
+  height: 10%;
+  width: 5%;
+  top: 88%;
+  position: absolute;
+  left: 35%;
+}
+
+#swordFinal {
+  display: none;
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  top: 87%;
+  left: 28%;
 }
 
 #torch {

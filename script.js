@@ -1,7 +1,8 @@
 let hasKey = false;
-let hasTorch = false;
-let CodeCracked = true;
-const Code = Math.floor(1000 + Math.random() * 9999);
+let hasTorch = true;
+let codeCracked = true;
+let hasSwordHandle = false;
+const code = Math.floor(1000 + Math.random() * 9999);
 let doorsound = new Audio("sound/lidcreak.mp3");
 
 let delay = (function () {
@@ -35,6 +36,7 @@ function init() {
 }
 
 function level1() {
+  $("#msg").text("");
   $("#startBtn").css("display", "none");
   document.body.style.display = "center";
   console.log('Level 1');
@@ -44,7 +46,7 @@ function level1() {
   $("#btn1, #btn4").css("width", "10%");
   $("#btn1").attr("onClick", "level2();");
   $("#btn3").attr("onClick", "level4();");
-  $("#btn4").attr("onClick", "level9();");
+  $("#btn4").attr("onClick", "level11();");
   $("#btn1").css({
     left: "35%",
     height: "38%"
@@ -74,7 +76,7 @@ function level2() {
     $("#key").css("display", "none")
     $("#msg").text("In de cel lag een briefje met een code erop");
     delay(function () {
-      $("#msg").text(Code);
+      $("#msg").text(code);
       delay(function () {
         $("#msg").text("");
       }, 1500);
@@ -133,7 +135,7 @@ function level4() {
   });
   $("#btn1").attr("onClick", "level5();");
   $("#btn2").attr("onClick", "level6();");
-  $("#btn3").attr("onClick", "level7();");
+  $("#btn3").attr("onClick", "level11();");
   $("#btn4").attr("onClick", "level1();");
 }
 
@@ -223,16 +225,16 @@ function kist() {
 function checkCode() {
   console.log('Checking Code');
   let check = $("#inputbox").val();
-  if (Code == check) {
+  if (code == check) {
     $("#msg").text("De deur rechts van je is geopend.");
-    CodeCracked = true;
+    codeCracked = true;
   } else {
     $("#msg").text("false");
   }
 }
 
 function level10() {
-    if (!CodeCracked) {
+    if (!codeCracked) {
       $("#msg").text("De deur zit op slot!");
       delay(function () {
         console.log("op slot");
@@ -299,3 +301,103 @@ $(document).on('keydown', function (e) {
       break;
   }
 });
+
+function level11() {
+  console.log("level 11");
+  $("#btn1, #btn2, #btn3").css("display", "none");
+  document.body.style.backgroundColor = "black";
+  document.body.style.backgroundImage = "url('')";
+  document.body.style.backgroundSize = "cover";
+  if (!hasTorch) {
+    $("#msg").text("Het is te donker, je ziet niets!");
+    delay(function () {
+      level1();
+    }, 3000);
+  } else {
+    $("#torch").css("display", "none");
+    document.body.style.backgroundImage = "url('img/level_8.jpg')";
+    $("#msg").text("");
+    $("#btn1").attr("onClick", "level12();");
+    $("#btn2").attr("onClick", "level4();");
+    $("#btn3").attr("onClick", "level1();");
+  $("#btn1").css({
+    display: "block",
+    left: "55%",
+    top: "20%",
+    width: "10%",
+    height: "35%",
+  });
+  $("#btn2").css({
+    display: "block",
+    top: "30%",
+    left: "0%",
+    width: "20%",
+    height: "40%",
+  });
+  $("#btn3").css({
+    display: "block",
+    left: "0%",
+    top: "70%",
+    width: "40%",
+    height: "30%",
+  });
+}
+  $("#btn4").css("display", "none");
+}
+
+function level12() {
+  document.body.style.backgroundImage = "url('img/level_5.jpg')";
+  document.body.style.backgroundSize = "cover";
+  $("#btn3, #btn4").css("display", "none");
+  $("#btn1").attr("onClick", "sword1();");
+  $("#btn2").attr("onClick", "level11();");
+  $("#btn1").css({
+    display: "block",
+    left: "50%",
+    top: "50%",
+    width: "15%",
+    height: "30%",
+  });
+  $("#btn2").css({
+    display: "block",
+    left: "30%",
+    top: "70%",
+    width: "30%",
+    height: "30%",
+  });
+}
+
+function sword1() {
+  if (!hasSwordHandle) {
+    $("#msg").text("Je hebt een handvat gevonden!");
+    hasSwordHandle = true;
+    $("#sword1").css("display", "block");
+    delay(function () {
+      level13();
+    }, 3000);
+  } else {
+    level13();
+  }
+}
+
+function level13() {
+  $("#msg").text("");
+  document.body.style.backgroundImage = "url('img/level_7.jpg')";
+  document.body.style.backgroundSize = "cover";
+  $("#btn1").attr("onClick", "level14();");
+  $("#btn2").attr("onClick", "level12();");
+  $("#btn1").css({
+    display: "block",
+    left: "15%",
+    top: "45%",
+    width: "20%",
+    height: "30%",
+  });
+  $("#btn2").css({
+    display: "block",
+    left: "5%",
+    top: "80%",
+    width: "90%",
+    height: "20%",
+  });
+}
