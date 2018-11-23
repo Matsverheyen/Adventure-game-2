@@ -1,6 +1,5 @@
 let hasKey = false;
 let hasTorch = false;
-let CorrectCode = false;
 let CodeCracked = true;
 const Code = Math.floor(1000 + Math.random() * 9999);
 let doorsound = new Audio("sound/lidcreak.mp3");
@@ -183,6 +182,7 @@ function level8() {
   console.log('Level 8')
   document.body.style.backgroundImage = "url('img/level_3.png')";
   document.body.style.backgroundSize = "cover";
+  $("#shield").css("display", "none");
   $("#btn1").text("");
   $("#btn1").css("display", "none")
   $("#msg").text("");
@@ -226,7 +226,6 @@ function checkCode() {
   if (Code == check) {
     $("#msg").text("De deur rechts van je is geopend.");
     CodeCracked = true;
-    CorrectCode = true;
   } else {
     $("#msg").text("false");
   }
@@ -266,6 +265,16 @@ function Fireball() {
   var elem = document.getElementById("fireball");
   var pos = 0;
   var id = setInterval(frame, 1);
+  delay(function () {
+    $("#diamond").css("display", "block");
+    $("#btn1").css({
+      display: "block",
+      top: "50%",
+      left: "35%",
+      width: "30%"
+    })
+    $("#btn1").attr("onClick", "level8();");
+  }, 4300);
   function frame() {
     if (pos == 2000) {
       clearInterval(id);

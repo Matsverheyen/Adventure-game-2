@@ -12,6 +12,15 @@ body>div>button {
   cursor: pointer;
 }
 
+#diamond {
+  display: none;
+  width: 7%;
+  height: 10%;
+  left: 18%;
+  position: absolute;
+  top: 87%;
+}
+
 #shield {
   display: none;
   position: absolute;
@@ -61,7 +70,7 @@ body>div>button {
 #inputbox {
   border: 2px solid black;
   padding: 10px;
-  text-align:center;
+  text-align: center;
   display: none;
   width: 30%;
 }
