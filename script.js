@@ -1,8 +1,13 @@
 let hasKey = false;
 let hasTorch = true;
-let codeCracked = true;
+let codeCracked = false;
 let hasSwordHandle = false;
+let hasSword = false;
+let activated = true;
+let diamond1 = false;
+let diamond2 = true;
 const code = Math.floor(1000 + Math.random() * 9999);
+const code2 = Math.floor(1200 + Math.random() * 9499);
 let doorsound = new Audio("sound/lidcreak.mp3");
 
 let delay = (function () {
@@ -176,7 +181,6 @@ function level6() {
   console.log('Level 6 - Sleutel');
   $("#btn2").css("display", "none")
   $("#key").css("display", "block")
-
   hasKey = true;
 }
 
@@ -346,6 +350,7 @@ function level11() {
 }
 
 function level12() {
+  console.log("level 12");
   document.body.style.backgroundImage = "url('img/level_5.jpg')";
   document.body.style.backgroundSize = "cover";
   $("#btn3, #btn4").css("display", "none");
@@ -381,17 +386,20 @@ function sword1() {
 }
 
 function level13() {
+  console.log("level 13");
   $("#msg").text("");
-  document.body.style.backgroundImage = "url('img/level_7.jpg')";
+  document.body.style.backgroundImage = "url('img/level_9.jpg')";
   document.body.style.backgroundSize = "cover";
   $("#btn1").attr("onClick", "level14();");
   $("#btn2").attr("onClick", "level12();");
+  $("#btn3").attr("onClick", "level15();");
+  $("#btn4").attr("onClick", "zwaard();");
   $("#btn1").css({
     display: "block",
-    left: "15%",
+    left: "5%",
     top: "45%",
-    width: "20%",
-    height: "30%",
+    width: "15%",
+    height: "35%",
   });
   $("#btn2").css({
     display: "block",
@@ -400,4 +408,162 @@ function level13() {
     width: "90%",
     height: "20%",
   });
+  $("#btn3").css({
+    display: "block",
+    left: "80%",
+    top: "40%",
+    width: "15%",
+    height: "40%",
+  });
+  if (!hasSword) {
+    $("#btn4").css({
+      display: "block",
+      left: "50%",
+      top: "55%",
+      width: "25%",
+      height: "15%",
+    });
+  } else {
+    $("#btn4").css("display", "none");
+  }
+}
+
+function zwaard() {
+  if (!hasSword) {
+    $("#sword2").css("display", "block");
+    $("#btn4").css("display", "none");
+    hasSword = true;
+  }
+}
+
+function level14() {
+  console.log("level 14");
+  document.body.style.backgroundImage = "url('img/level_4.png')";
+  document.body.style.backgroundSize = "cover";
+  $("#btn1").attr("onClick", "level13();");
+  $("#btn2").attr("onClick", "pedestal();");
+  $("#btn3").attr("onClick", "level16();");
+  $("#btn1").css({
+    display: "block",
+      left: "5%",
+      top: "80%",
+      width: "90%",
+      height: "20%",
+  });
+  $("#btn2").css({
+    display: "block",
+    left: "50%",
+    top: "55%",
+    width: "10%",
+    height: "10%",
+  });
+  $("#btn3").css({
+    display: "block",
+    left: "65%",
+    top: "30%",
+    width: "15%",
+    height: "35%",
+  });
+  $("#btn4").css("display", "none");
+}
+
+function pedestal() {
+  if (hasSword && hasSwordHandle) {
+    $("#btn2").css("display", "none");
+    $("#sword1").css("display", "none");
+    $("#sword2").css("display", "none");
+    $("#msg").text("Je hebt het zwaar in het pedaal gezet!");
+    delay(function () {
+      $("#msg").text("");
+    }, 3000);
+    activated = true;
+  } else if (hasSword && !hasSwordHandle) {
+    $("#msg").text("Je mist het handvat");
+    delay(function () {
+      $("#msg").text("");
+    }, 3000);
+  } else if (!hasSword && hasSwordHandle) {
+    $("#msg").text("Je mist het zwaard");
+    delay(function () {
+      $("#msg").text("");
+    }, 3000);
+  } else {
+    $("#msg").text("Je mist het zwaard");
+    delay(function () {
+      $("#msg").text("");
+    }, 3000);
+  }
+}
+
+function level16() {
+  if (!activated) {
+    $("#msg").text("De deur is dicht!");
+    delay(function () {
+      delay(function () {
+        $("#msg").text("Stop het zwaard in de steen");
+      }, 3000);
+      $("#msg").text("");
+    }, 3000);
+  } else {
+    console.log("level 16");
+    document.body.style.backgroundImage = "url('img/level_7.png')";
+    document.body.style.backgroundSize = "cover";
+    $("#btn1").attr("onClick", "level14();");
+    $("#btn2").attr("onClick", "RandomCode();");
+    $("#btn3").attr("onClick", "final();");
+    $("#btn2").css({
+      display: "block",
+      left: "15%",
+      top: "40%",
+      width: "25%",
+      height: "35%",
+    });
+    $("#btn3").css({
+      display: "block",
+      left: "75%",
+      top: "30%",
+      width: "15%",
+      height: "35%",
+    });
+  }
+}
+
+function final() {
+  if (diamond1 && diamond2) {
+    $("#diamond").css("display", "block");
+    $("#diamond2").css("display", "block");
+    delay(function () {
+      escaped();
+    }, 2000);
+  } else if (diamond1 && !diamond2) {
+    $("#diamond").css("display", "block");
+  } else if (!diamond1 && diamond2) {
+    $("#diamond2").css("display", "block");
+  } else {
+    $("#msg").text("Je hebt geen diamanten!");
+    delay(function () {
+      $("#msg").text("");
+    }, 3000);
+  }
+}
+
+function escaped() {
+  document.body.style.backgroundImage = "url('img/Outside.jpg')";
+  document.body.style.backgroundSize = "cover";
+  $("#diamond").css("display", "none");
+  $("#diamond2").css("display", "none");
+  $("#msg").text("Je bent ontsnapt goedzo!");
+}
+
+function RandomCode() {
+    $("#msg").text(code2);
+    delay(function () {
+      $("#msg").text("");
+    }, 2500);
+}
+
+function level15() {
+  console.log('level 15');
+  document.body.style.backgroundImage = "url('img/Outside.jpg')";
+  document.body.style.backgroundSize = "cover";
 }

@@ -14,11 +14,20 @@ body>div>button {
 
 #diamond {
   display: none;
-  width: 7%;
-  height: 10%;
-  left: 18%;
+  width: 4%;
+  height: 7%;
+  left: 81%;
   position: absolute;
-  top: 88%;
+  top: 46%;
+}
+
+#diamond2 {
+  display: none;
+  width: 4%;
+  height: 7%;
+  left: 81%;
+  position: absolute;
+  top: 55%;
 }
 
 #shield {
@@ -50,7 +59,7 @@ body>div>button {
   width: 5%;
   top: 88%;
   position: absolute;
-  left: 28%;
+  left: 8%;
 }
 
 #sword2 {
