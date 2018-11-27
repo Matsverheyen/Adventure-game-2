@@ -1,16 +1,20 @@
-let hasKey = false;
-let hasTorch = false;
-let codeCracked = false;
-let hasSwordHandle = false;
-let hasSword = false;
-let activated = false;
-let diamond1 = false;
-let diamond2 = false;
+var hasKey = false;
+var hasTorch = false;
+var codeCracked = false;
+var hasSwordHandle = false;
+var hasSword = false;
+var activated = false;
+var diamond1 = false;
+var diamond2 = false;
 const code = Math.floor(1000 + Math.random() * 9999);
-let doorsound = new Audio("sound/lidcreak.mp3");
+var doorsound = new Audio("sound/lidcreak.mp3");
+var jailcell = new Audio("sound/jaildoor.mp3");
+var ambient = new Audio("sound/ambient.mp3");
+var torchSound = new Audio("sound/torch.mp3");
+var fireballsound = new Audio("sound/fireball.mp3");
 
-let delay = (function () {
-  let timer = 0;
+var delay = (function () {
+  var timer = 0;
   return function (callback, ms) {
     clearTimeout(timer);
     timer = setTimeout(callback, ms);
@@ -40,6 +44,8 @@ function init() {
 }
 
 function level1() {
+  doorsound.play();
+  ambient.play();
   $("#msg").text("");
   $("#startBtn").css("display", "none");
   document.body.style.display = "center";
@@ -77,6 +83,7 @@ function level2() {
     }, 1500);
     console.log('Je hebt geen sleutel')
   } else {
+    jailcell.play();
     $("#key").css("display", "none")
     $("#msg").text("In de cel lag een briefje met een code erop");
     delay(function () {
@@ -85,19 +92,6 @@ function level2() {
         $("#msg").text("");
       }, 1500);
     }, 1500);
-  }
-}
-
-function level3() {
-  console.log('Level 3');
-  if (!hasKey) {
-    $("#msg").text("Je hebt geen sleutel");
-    delay(function () {
-      $("#msg").text("");
-    }, 1500);
-    console.log('Je hebt geen sleutel')
-  } else {
-    //bg
   }
 }
 
@@ -135,7 +129,6 @@ function level4() {
     height: "70%"
   });
   $("#btn4").click(function () {
-    doorsound.play();
   });
   $("#btn1").attr("onClick", "level5();");
   $("#btn2").attr("onClick", "level6();");
@@ -152,6 +145,7 @@ function level5() {
     $("#btn2").css("display", "block");
   } else {
     $("#btn2").css("display", "none");
+    torchSound.play();
   }
   $("#btn2").attr("onClick", "fakkel();");
   $("#btn3").attr("onClick", "level8();");
@@ -227,7 +221,7 @@ function kist() {
 
 function checkCode() {
   console.log('Checking Code');
-  let check = $("#inputbox").val();
+  var check = $("#inputbox").val();
   if (code == check) {
     $("#msg").text("De deur rechts van je is geopend.");
     codeCracked = true;
@@ -268,6 +262,7 @@ function Fireball() {
   $("#fireball").css("display", "block");
   $("#startBtn").css("display", "none");
   var elem = document.getElementById("fireball");
+  fireballsound.play();
   var pos = 0;
   var id = setInterval(frame, 1);
   delay(function () {
