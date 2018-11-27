@@ -1,13 +1,12 @@
 let hasKey = false;
-let hasTorch = true;
+let hasTorch = false;
 let codeCracked = false;
 let hasSwordHandle = false;
 let hasSword = false;
-let activated = true;
+let activated = false;
 let diamond1 = false;
-let diamond2 = true;
+let diamond2 = false;
 const code = Math.floor(1000 + Math.random() * 9999);
-const code2 = Math.floor(1200 + Math.random() * 9499);
 let doorsound = new Audio("sound/lidcreak.mp3");
 
 let delay = (function () {
@@ -272,7 +271,8 @@ function Fireball() {
   var pos = 0;
   var id = setInterval(frame, 1);
   delay(function () {
-    $("#diamond").css("display", "block");
+    $("#msg").text("Je hebt een diamant gekregen!");
+    diamond1 = true;
     $("#btn1").css({
       display: "block",
       top: "50%",
@@ -438,6 +438,8 @@ function zwaard() {
 
 function level14() {
   console.log("level 14");
+  $("#diamond").css("display", "none");
+  $("#diamond2").css("display", "none");
   document.body.style.backgroundImage = "url('img/level_4.png')";
   document.body.style.backgroundSize = "cover";
   $("#btn1").attr("onClick", "level13();");
@@ -509,7 +511,7 @@ function level16() {
     document.body.style.backgroundImage = "url('img/level_7.png')";
     document.body.style.backgroundSize = "cover";
     $("#btn1").attr("onClick", "level14();");
-    $("#btn2").attr("onClick", "RandomCode();");
+    $("#btn2").attr("onClick", "randomCode();");
     $("#btn3").attr("onClick", "final();");
     $("#btn2").css({
       display: "block",
@@ -555,7 +557,7 @@ function escaped() {
   $("#msg").text("Je bent ontsnapt goedzo!");
 }
 
-function RandomCode() {
+function randomCode() {
     $("#msg").text(code2);
     delay(function () {
       $("#msg").text("");
@@ -564,6 +566,32 @@ function RandomCode() {
 
 function level15() {
   console.log('level 15');
-  document.body.style.backgroundImage = "url('img/Outside.jpg')";
+  document.body.style.backgroundImage = "url('img/level10.png')";
   document.body.style.backgroundSize = "cover";
+  $("#btn1").attr("onClick", "Diamond();");
+  $("#btn2").attr("onClick", "level14();");
+  $("#btn1").css({
+    display: "block",
+    left: "45%",
+    top: "45%",
+    width: "15%",
+    height: "15%",
+  });
+  $("#btn2").css({
+    display: "block",
+    left: "0%",
+    top: "80%",
+    width: "100%",
+    height: "25%",
+  });
+  $("#btn3").css("display", "none");
+  $("#btn4").css("display", "none");
+}
+
+function Diamond() {
+  $("#msg").text("Je hebt een diamant gevonden!");
+  delay(function () {
+    $("#msg").text("");
+  }, 2500);
+  diamond2 = true;
 }
