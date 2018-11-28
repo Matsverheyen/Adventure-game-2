@@ -226,7 +226,7 @@ function checkCode() {
   console.log('Checking Code');
   var check = $("#inputbox").val();
   if (code == check) {
-    $("#msg").text("De deur rechts van je is geopend.");
+    $("#msg").text("De deur links van je is geopend.");
     codeCracked = true;
   } else {
     $("#msg").text("false");
@@ -510,7 +510,7 @@ function level16() {
     document.body.style.backgroundImage = "url('img/level_7.png')";
     document.body.style.backgroundSize = "cover";
     $("#btn1").attr("onClick", "level14();");
-    $("#btn2").attr("onClick", "randomCode();");
+    $("#btn2").css("display", "none");
     $("#btn3").attr("onClick", "final();");
     $("#btn2").css({
       display: "block",
@@ -568,7 +568,7 @@ function level15() {
   document.body.style.backgroundImage = "url('img/level10.png')";
   document.body.style.backgroundSize = "cover";
   $("#btn1").attr("onClick", "Diamond();");
-  $("#btn2").attr("onClick", "level14();");
+  $("#btn2").attr("onClick", "level13();");
   $("#btn1").css({
     display: "block",
     left: "45%",
