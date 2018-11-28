@@ -30,6 +30,8 @@ function fakkel() {
 function init() {
   console.log("startup");
   document.body.style.backgroundColor = "#42474f";
+  $("#info").css("display", "block");
+  $("#info").text("In dit spel is het de bedoeling dat je probeert te ontsnappen. Dit doe je door middel van te klikken op bijvoorbeeld een deur. Als je over iets wat je kan aanklikken hovert dan zie je je muis veranderen.");
   $("#startBtn").attr("onClick", "level1();");
   $("#btn1, #btn2, #btn3, #btn4").css("display", "none");
   $("#startBtn").css({
@@ -44,6 +46,8 @@ function init() {
 }
 
 function level1() {
+  $("#info").css("display", "none");
+  $("#info").text("");
   doorsound.play();
   ambient.play();
   $("#msg").text("");
@@ -128,8 +132,7 @@ function level4() {
     width: "20%",
     height: "70%"
   });
-  $("#btn4").click(function () {
-  });
+  $("#btn4").click(function () {});
   $("#btn1").attr("onClick", "level5();");
   $("#btn2").attr("onClick", "level6();");
   $("#btn3").attr("onClick", "level11();");
@@ -231,31 +234,31 @@ function checkCode() {
 }
 
 function level10() {
-    if (!codeCracked) {
-      $("#msg").text("De deur zit op slot!");
-      delay(function () {
-        console.log("op slot");
-        $("#msg").text("");
-      }, 1500);
-    } else {
+  if (!codeCracked) {
+    $("#msg").text("De deur zit op slot!");
+    delay(function () {
+      console.log("op slot");
       $("#msg").text("");
-      console.log("Geopend");
-      document.body.style.backgroundImage = "url('img/boss.jpg')";
-      document.body.style.backgroundSize = "cover";
-      $("#btn4, #btn2, #btn3").css("display", "none");
-      $("#startBtn").attr("onClick", "Fireball();");
-      $("#startBtn").text("Start bossfight");
-      $('#startBtn').css('border-radius', '50%');
-      $("#startBtn").css({
-        left: "47%",
-        top: "40%",
-        width: "10%",
-        height: "40%",
-        display: "block"
-      });
-      Fireball();
-    }
+    }, 1500);
+  } else {
+    $("#msg").text("");
+    console.log("Geopend");
+    document.body.style.backgroundImage = "url('img/boss.jpg')";
+    document.body.style.backgroundSize = "cover";
+    $("#btn4, #btn2, #btn3").css("display", "none");
+    $("#startBtn").attr("onClick", "Fireball();");
+    $("#startBtn").text("Start bossfight");
+    $('#startBtn').css('border-radius', '50%');
+    $("#startBtn").css({
+      left: "47%",
+      top: "40%",
+      width: "10%",
+      height: "40%",
+      display: "block"
+    });
+    Fireball();
   }
+}
 
 function Fireball() {
   $("#shield").css("display", "block");
@@ -276,6 +279,7 @@ function Fireball() {
     })
     $("#btn1").attr("onClick", "level8();");
   }, 4300);
+
   function frame() {
     if (pos == 2000) {
       clearInterval(id);
@@ -319,28 +323,28 @@ function level11() {
     $("#btn1").attr("onClick", "level12();");
     $("#btn2").attr("onClick", "level4();");
     $("#btn3").attr("onClick", "level1();");
-  $("#btn1").css({
-    display: "block",
-    left: "55%",
-    top: "20%",
-    width: "10%",
-    height: "35%",
-  });
-  $("#btn2").css({
-    display: "block",
-    top: "30%",
-    left: "0%",
-    width: "20%",
-    height: "40%",
-  });
-  $("#btn3").css({
-    display: "block",
-    left: "0%",
-    top: "70%",
-    width: "40%",
-    height: "30%",
-  });
-}
+    $("#btn1").css({
+      display: "block",
+      left: "55%",
+      top: "20%",
+      width: "10%",
+      height: "35%",
+    });
+    $("#btn2").css({
+      display: "block",
+      top: "30%",
+      left: "0%",
+      width: "20%",
+      height: "40%",
+    });
+    $("#btn3").css({
+      display: "block",
+      left: "0%",
+      top: "70%",
+      width: "40%",
+      height: "30%",
+    });
+  }
   $("#btn4").css("display", "none");
 }
 
@@ -442,10 +446,10 @@ function level14() {
   $("#btn3").attr("onClick", "level16();");
   $("#btn1").css({
     display: "block",
-      left: "5%",
-      top: "80%",
-      width: "90%",
-      height: "20%",
+    left: "5%",
+    top: "80%",
+    width: "90%",
+    height: "20%",
   });
   $("#btn2").css({
     display: "block",
@@ -553,10 +557,10 @@ function escaped() {
 }
 
 function randomCode() {
-    $("#msg").text(code2);
-    delay(function () {
-      $("#msg").text("");
-    }, 2500);
+  $("#msg").text(code2);
+  delay(function () {
+    $("#msg").text("");
+  }, 2500);
 }
 
 function level15() {

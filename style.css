@@ -12,6 +12,15 @@ body>div>button {
   cursor: pointer;
 }
 
+#info {
+  display: none;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3rem;
+}
+
 #diamond {
   display: none;
   width: 4%;
@@ -71,15 +80,6 @@ body>div>button {
   left: 35%;
 }
 
-#swordFinal {
-  display: none;
-  width: 10%;
-  height: 10%;
-  position: absolute;
-  top: 87%;
-  left: 28%;
-}
-
 #torch {
   width: 100px;
   height: 100px;
@@ -131,7 +131,27 @@ body>div>button {
   font-size: 20px;
   font-weight: bolder;
   text-transform: uppercase;
+  box-shadow: 0px 0px 5px black;
 }
+
+#startBtn:hover {
+  animation: a .6s;
+}
+
+@keyframes a {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 
 #btn1 {
   position: absolute;
